@@ -3,6 +3,10 @@ $(document).ready(function() {
         paging: false,
         searching: false,
         info: false,
+        "lengthChange": true,
+        "pageLength": 10,
+        "processing": true,
+        "serverSide": true,
         "ajax": "Productos-Controlador.php",
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/Spanish.json"
