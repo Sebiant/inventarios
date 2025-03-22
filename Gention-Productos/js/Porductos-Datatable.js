@@ -1,11 +1,8 @@
 $(document).ready(function() {
     var table = $('#datos').DataTable({
-        "searching": true,
-        "paging": true,
-        "lengthChange": true,
-        "pageLength": 10,
-        "processing": true,
-        "serverSide": true,
+        paging: false,
+        searching: false,
+        info: false,
         "ajax": "Productos-Controlador.php",
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/Spanish.json"

@@ -12,9 +12,9 @@
                 $categoria = $_POST['categoria'] ?? '';
     
                 if (!empty($nombre) && !empty($descripcion) && !empty($unidad_medida) && !empty($categoria)) {
-                    $sql = "INSERT INTO productos (nombre, descripcion, unidad_medida, categoria) VALUES (?, ?, ?, ?, ?)";
+                    $sql = "INSERT INTO productos (nombre, descripcion, unidad_medida, categoria) VALUES (?, ?, ?, ?)";
                     $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("sssds", $nombre, $descripcion, $unidad_medida, $categoria);
+                    $stmt->bind_param("ssss", $nombre, $descripcion, $unidad_medida, $categoria);
     
                     if ($stmt->execute()) {
                         echo json_encode(['success' => true, 'message' => 'Producto creado exitosamente.']);

@@ -48,7 +48,6 @@
             </div>
             <div class="modal-body">
                 <form id="editForm">
-                    <input type="hidden" name="accion" value="editar" id="accion_editar">
                     <input type="hidden" name="id_producto" id="id_producto_editar">
 
                     <div class="mb-3">
@@ -90,9 +89,6 @@
             </div>
             <div class="modal-body">
                 <form id="createForm">
-                    <input type="hidden" name="accion" value="editar" id="accion_editar">
-                    <input type="hidden" name="id_producto" id="id_producto_editar">
-
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre del Producto:</label>
                         <input type="text" name="nombre" id="nombre_editar" class="form-control" placeholder="Nombre del producto" required>
