@@ -1,7 +1,6 @@
 <?php
-    include_once '../componentes/header.php';
+    include_once '../Componentes/header.php';
 ?>
-
 <div class="container mt-4">
     <div class="row">
         <div class="col-2 offset-10">
@@ -119,7 +118,7 @@
 </div>
 
 <?php
-    include_once '../componentes/footer.php';
+    include_once '../Componentes/footer.php';
 ?>
 <script src="js/Porductos-Datatable.js"></script>
 <script>

@@ -1,100 +1,65 @@
 <?php
-    include_once '../componentes/header.php';
+    include_once '../Componentes/header.php';
 ?>
-<!-- Contenedor principal -->
 <div class="container mt-4">
-  <!-- Título de la sección -->
-  <div class="row mb-3">
-    <div class="col">
-      <h3>Gestión de Inventario</h3>
-    </div>
-  </div>
-
-  <!-- Sección que divide "Stock Actual" y "Historial de Movimientos" -->
-  <div class="row">
-    <!-- Columna izquierda: Stock Actual -->
-    <div class="col-md-4 mb-3">
-      <div class="card">
+    <div class="card">
         <div class="card-header">
-          <h5>Stock Actual</h5>
+            <h5>Gestión de Inventario</h5>
         </div>
         <div class="card-body">
-          <!-- Tabla de Stock Actual -->
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Stock</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Datos de ejemplo -->
-              <tr>
-                <td>Laptop</td>
-                <td id="stock-laptop">10</td>
-                <td>
-                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editarStockModal" onclick="cargarStock('Laptop', 10, 1)">
-                    <i class="bi bi-pencil-square"></i> Modificar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Teclado</td>
-                <td id="stock-teclado">15</td>
-                <td>
-                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editarStockModal" onclick="cargarStock('Teclado', 15, 2)">
-                    <i class="bi bi-pencil-square"></i> Modificar
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+            <!-- Fila con las dos columnas (Stock Actual e Historial de Movimientos) -->
+            <div class="row">
+                <!-- Columna izquierda: Stock Actual -->
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Stock Actual</h5>
+                        </div>
+                        <div class="table-responsive card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Stock</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Aquí van los datos dinámicos -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Columna derecha: Historial de Movimientos -->
-    <div class="col-md-8 mb-3">
-      <div class="card">
-        <div class="card-header">
-          <h5>Historial de Movimientos</h5>
-        </div>
-        <div class="card-body">
-          <!-- Tabla con historial de entradas y salidas -->
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Producto</th>
-                <th>Tipo</th>
-                <th>Cantidad</th>
-                <th>Fecha</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Datos de ejemplo -->
-              <tr>
-                <td>1</td>
-                <td>Laptop</td>
-                <td>Entrada</td>
-                <td>5</td>
-                <td>2025-04-01</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Laptop</td>
-                <td>Salida</td>
-                <td>2</td>
-                <td>2025-04-02</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div> <!-- fin row -->
-</div> <!-- fin container -->
+                <!-- Columna derecha: Historial de Movimientos -->
+                <div class="col-md-8 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Historial de Movimientos</h5>
+                        </div>
+                        <div class="table-responsive card-body">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Producto</th>
+                                        <th>Tipo</th>
+                                        <th>Cantidad</th>
+                                        <th>Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Aquí van los datos dinámicos -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Fin row -->
+        </div> <!-- Fin card-body -->
+    </div> <!-- Fin card general -->
+</div> <!-- Fin container -->
 
 <!-- Modal para editar stock (modificar el stock actual) -->
 <div class="modal fade" id="editarStockModal" tabindex="-1" aria-labelledby="editarStockModalLabel" aria-hidden="true">
@@ -177,7 +142,7 @@
 </div>
 
 <?php
-    include_once '../componentes/footer.php';
+    include_once '../Componentes/footer.php';
 ?>
 <script>
   // Función para cargar datos del stock en el modal de modificar stock

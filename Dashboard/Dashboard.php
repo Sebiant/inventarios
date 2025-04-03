@@ -1,5 +1,5 @@
 <?php
-    include_once '../componentes/header.php';
+    include_once '../Componentes/header.php';
 ?>
 
 <!-- Contenido principal -->
@@ -9,5 +9,5 @@
 </div>
 
 <?php
-    include_once '../componentes/footer.php';
+    include_once '../Componentes/footer.php';
 ?>

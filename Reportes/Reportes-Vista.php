@@ -1,7 +1,7 @@
 <?php
-    include_once '../componentes/header.php';
+    include_once '../Componentes/header.php';
 ?>
 
 <?php
-    include_once '../componentes/footer.php';
+    include_once '../Componentes/footer.php';
 ?>
