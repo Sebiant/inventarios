@@ -16,7 +16,8 @@
                                 <tr>
                                     <th>Producto</th>
                                     <th>Stock</th>
-                                    <th>Acciones</th>
+                                    <th>Ingresar</th>
+                                    <th>Retirar</th>
                                 </tr>
                             </thead>
                         </table>

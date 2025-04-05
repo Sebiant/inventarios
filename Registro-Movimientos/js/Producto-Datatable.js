@@ -36,14 +36,19 @@ $(document).ready(function () {
                 data: "id_producto",
                 render: function (data) {
                     return `
-                        <div class="btn-acciones">
-                            <button class="btn btn-success btn-sm btn-ingresar" data-id="${data}">
-                                <i class="bi bi-plus-circle"></i> Ingresar
-                            </button>
-                            <button class="btn btn-danger btn-sm btn-retirar" data-id="${data}">
-                                <i class="bi bi-dash-circle"></i> Retirar
-                            </button>
-                        </div>
+                        <button class="btn btn-success btn-sm btn-ingresar" data-id="${data}">
+                            <i class="bi bi-plus-circle"></i> Ingresar
+                        </button>
+                    `;
+                }
+            },
+            {
+                data: "id_producto",
+                render: function (data) {
+                    return `
+                        <button class="btn btn-danger btn-sm btn-retirar" data-id="${data}">
+                            <i class="bi bi-dash-circle"></i> Retirar
+                        </button>
                     `;
                 }
             }
