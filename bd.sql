@@ -1,5 +1,5 @@
-CREATE DATABASE Restock;
-USE Restock;
+CREATE DATABASE restock_proyect;
+Use restock_proyect;
 
 -- Tabla de productos (Inventario)
 CREATE TABLE productos (
@@ -18,6 +18,5 @@ CREATE TABLE movimientos (
     tipo_movimiento ENUM('Entrada', 'Salida') NOT NULL,
     cantidad INT NOT NULL,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    motivo TEXT NOT NULL,
     FOREIGN KEY (id_producto) REFERENCES productos(id_producto) ON DELETE CASCADE
 );
