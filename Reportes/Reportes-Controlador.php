@@ -10,29 +10,27 @@ switch ($accion) {
         $mes = isset($_GET['mes']) ? $_GET['mes'] : null;
 
         if ($mes) {
-            $stmt = $conn->prepare("
-                SELECT 
+            $stmt = $conn->prepare("SELECT 
                     DATE_FORMAT(m.fecha, '%Y-%m') AS periodo,
                     SUM(CASE WHEN m.tipo_movimiento = 'Entrada' THEN m.cantidad ELSE 0 END) AS total_entradas,
                     SUM(CASE WHEN m.tipo_movimiento = 'Salida' THEN m.cantidad ELSE 0 END) AS total_salidas
                 FROM movimientos m
                 WHERE DATE_FORMAT(m.fecha, '%Y-%m') = ?
                 GROUP BY periodo
-                ORDER BY periodo
-            ");
+                ORDER BY periodo");
+
             $stmt->bind_param("s", $mes);
             $stmt->execute();
             $result = $stmt->get_result();
         } else {
-            $sql = "
-                SELECT 
+            $sql = "SELECT 
                     DATE_FORMAT(m.fecha, '%Y-%m') AS periodo,
                     SUM(CASE WHEN m.tipo_movimiento = 'Entrada' THEN m.cantidad ELSE 0 END) AS total_entradas,
                     SUM(CASE WHEN m.tipo_movimiento = 'Salida' THEN m.cantidad ELSE 0 END) AS total_salidas
                 FROM movimientos m
                 GROUP BY periodo
-                ORDER BY periodo
-            ";
+                ORDER BY periodo";
+
             $result = $conn->query($sql);
         }
 
@@ -45,8 +43,7 @@ switch ($accion) {
         break;
 
         case 'masMovidos':
-            $sql = "
-                SELECT 
+            $sql = "SELECT 
                     p.nombre,
                     SUM(CASE WHEN m.tipo_movimiento = 'Entrada' THEN m.cantidad ELSE 0 END) AS entradas,
                     SUM(CASE WHEN m.tipo_movimiento = 'Salida' THEN m.cantidad ELSE 0 END) AS salidas,
@@ -56,10 +53,10 @@ switch ($accion) {
                     ) AS total_movimiento
                 FROM productos p
                 LEFT JOIN movimientos m ON p.id_producto = m.id_producto
+                WHERE p.estado = 1
                 GROUP BY p.id_producto, p.nombre
                 ORDER BY total_movimiento DESC
-                LIMIT 10
-            ";
+                LIMIT 10";
         
             $result = $conn->query($sql);
             $data = [];
@@ -73,18 +70,17 @@ switch ($accion) {
         
 
     case 'stockBajo':
-        $sql = "
-            SELECT 
+        $sql = "SELECT 
                 p.nombre, 
                 p.unidad_medida,
                 COALESCE(SUM(CASE WHEN m.tipo_movimiento = 'Entrada' THEN m.cantidad ELSE 0 END), 0) -
                 COALESCE(SUM(CASE WHEN m.tipo_movimiento = 'Salida' THEN m.cantidad ELSE 0 END), 0) AS stock_actual
             FROM productos p
             LEFT JOIN movimientos m ON p.id_producto = m.id_producto
+            WHERE p.estado = 1
             GROUP BY p.id_producto, p.nombre, p.unidad_medida
-            HAVING stock_actual <= 10
-            ORDER BY stock_actual ASC
-        ";
+            HAVING stock_actual <= 5
+            ORDER BY stock_actual ASC";
 
         $result = $conn->query($sql);
         $data = [];
@@ -104,8 +100,8 @@ switch ($accion) {
                     COALESCE(SUM(CASE WHEN m.tipo_movimiento = 'Salida' THEN m.cantidad ELSE 0 END), 0) AS stock
                 FROM productos p
                 LEFT JOIN movimientos m ON p.id_producto = m.id_producto
-                GROUP BY p.id_producto, p.nombre, p.unidad_medida
-        ";
+                WHERE p.estado = 1
+                GROUP BY p.id_producto, p.nombre, p.unidad_medida";
 
         $result = $conn->query($sql);
         $data = [];
