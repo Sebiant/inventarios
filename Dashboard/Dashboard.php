@@ -5,7 +5,8 @@
 <!-- Contenido principal -->
 <div class="container mt-5 text-center">
     <h1 class="display-4">Bienvenido al Sistema de Inventario</h1>
-    <p class="lead">Administra tus productos de manera eficiente y en tiempo real.</p>
+    <!-- Imagen -->
+    <img src="../src/logo.png" alt="Inventario ilustración" class="img-fluid mt-4" style="max-width: 400px;">
 </div>
 
 <?php

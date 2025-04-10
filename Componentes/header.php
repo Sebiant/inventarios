@@ -6,6 +6,7 @@
     <title>Restock | Sistema de Gestión</title>
     <link rel="stylesheet" href="../css/bootstrap.rtl.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="icon" href="../src/icon.png" type="image/png">
 </head>
 <body>
   <!-- Barra de navegación -->
