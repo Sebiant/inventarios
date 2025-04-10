@@ -1,5 +1,7 @@
+let tablaMovimientos;
+
 $(document).ready(function() {
-    var tablaMovimientos = $('#tablaHistorialMovimientos').DataTable({
+    tablaMovimientos = $('#tablaHistorialMovimientos').DataTable({
         columnDefs: [{ className: "text-center", targets: "_all" }],
         ajax: {
             url: "Movimientos-Controlador.php",
@@ -12,6 +14,7 @@ $(document).ready(function() {
             { data: "unidad_medida" },
             { data: "producto" },
             { data: "fecha" }
-        ]
+        ],
+        order: [[4, 'desc']]
     });
 });

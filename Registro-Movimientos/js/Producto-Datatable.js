@@ -1,7 +1,6 @@
 let tablaStock;
 
 $(document).ready(function () {
-
     function cargarProductos() {
         $.ajax({
             url: "Movimientos-Controlador.php?accion=obtenerProductos",
@@ -113,6 +112,7 @@ function GuardarMovimiento() {
                 $('#nuevoMovimientoForm')[0].reset();
                 $('#nuevoMovimientoModal').modal('hide');
                 tablaStock.ajax.reload();
+                tablaMovimientos.ajax.reload();
             } else {
                 alert(response.mensaje);
             }

@@ -80,7 +80,8 @@
                         m.cantidad, 
                         DATE_FORMAT(m.fecha, '%d de %M de %Y') AS fecha
                     FROM movimientos m
-                    JOIN productos p ON p.id_producto = m.id_producto";
+                    JOIN productos p ON p.id_producto = m.id_producto
+                    ORDER BY m.fecha DESC";
 
             $result = $conn->query($sql);
 
